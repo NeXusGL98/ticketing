@@ -9,7 +9,7 @@ import { TicketUpdatedListener } from './nats/listeners/ticket-updated-listener'
 
 const start = async () => {
 
-    console.log('Starting order App')
+    console.log('Starting order app')
 
     if (!process.env.JWT_KEY) {
         throw new Error('JWT MUST BE DEFINED');
