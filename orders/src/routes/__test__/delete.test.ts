@@ -24,10 +24,10 @@ it('marks an order as cancelled', async () => {
 
   // make a request to cancel the order
   await request(app)
-    .delete(`/api/orders/${order.id}`)
+    .put(`/api/orders/${order.id}`)
     .set('Cookie', user)
     .send()
-    .expect(204);
+    .expect(200);
 
   // expectation to make sure the thing is cancelled
   const updatedOrder = await Order.findById(order.id);
@@ -53,10 +53,10 @@ it('emits a order cancelled event', async () => {
 
   // make a request to cancel the order
   await request(app)
-    .delete(`/api/orders/${order.id}`)
+    .put(`/api/orders/${order.id}`)
     .set('Cookie', user)
     .send()
-    .expect(204);
+    .expect(200);
 
   expect(natsWrapper.client.publish).toHaveBeenCalled();
 });
