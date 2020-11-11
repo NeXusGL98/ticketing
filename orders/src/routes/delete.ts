@@ -35,7 +35,7 @@ router.put('/api/orders/:orderId',requireAuth,async(req:Request,res:Response)=> 
         }
     });
 
-    res.send(order);
+    res.status(200).send(order);
 
     
 });
